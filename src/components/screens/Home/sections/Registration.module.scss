@@ -1,0 +1,344 @@
+@use "../../../../styles/conference";
+.section {
+  padding: 5.5rem 0 6rem;
+}
+
+.inner {
+  @include conference.container;
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+  gap: 3rem;
+}
+
+.label {
+  @include conference.section-label;
+}
+
+.title {
+  @include conference.section-title;
+  font-size: clamp(3rem, 4.45vw, 4rem);
+}
+
+.introduction {
+  margin: 0 0 2rem;
+  font-size: 1.375rem;
+  line-height: 1.5;
+}
+
+.titleLast {
+  display: block;
+}
+
+.invitation {
+  padding-top: 2rem;
+  margin-bottom: 2rem;
+  border-top: 1px solid conference.$line;
+  h3 {
+    margin: 0 0 2rem;
+    font-size: 1.625rem;
+    line-height: 1.3;
+  }
+  p {
+    margin: 0;
+    font-size: 1.125rem;
+    line-height: 1.5;
+  }
+}
+
+.contact {
+  font-style: normal;
+  font-size: 1rem;
+  line-height: 1.5;
+  a {
+    @include conference.focus(conference.$navy);
+    color: inherit;
+    text-decoration: none;
+  }
+}
+
+.formColumn {
+  min-width: 0;
+  padding-top: 3.5rem;
+}
+
+.draft {
+  margin-bottom: 2rem;
+  padding: 1rem;
+  border: 1px solid conference.$line;
+  h3 {
+    margin: 0 0 0.75rem;
+    font-size: 1rem;
+    line-height: 1.3;
+  }
+  p {
+    margin: 0 0 0.75rem;
+    font-size: 0.875rem;
+    line-height: 1.5;
+  }
+  .helper {
+    margin: 1rem 0 0;
+    font-size: 0.75rem;
+  }
+}
+
+.draftActions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem 2rem;
+  button {
+    @include conference.focus(conference.$navy);
+    display: inline-flex;
+    align-items: center;
+    min-height: 3rem;
+    gap: 1.5rem;
+    padding: 0.5rem 1rem;
+    border: 0;
+    background: none;
+    color: conference.$navy;
+    font: 700 0.875rem / 1.5 conference.$font;
+    cursor: pointer;
+  }
+}
+
+.formTitle {
+  margin: 0 0 1.5rem;
+  font-size: 1.875rem;
+  line-height: 1.2;
+}
+
+.requiredNote {
+  margin: 0 0 2rem;
+  color: conference.$muted;
+  font-size: 0.875rem;
+  line-height: 1.5;
+}
+
+.field {
+  margin-bottom: 1.5rem;
+  label {
+    display: block;
+    margin-bottom: 0.5rem;
+    font-size: 0.875rem;
+    font-weight: 700;
+    line-height: 1.5;
+  }
+  input, textarea {
+    @include conference.focus(conference.$navy);
+    display: block;
+    width: 100%;
+    min-height: 3.5rem;
+    padding: 1rem;
+    border: 1px solid conference.$border;
+    border-radius: 0;
+    background: #fff;
+    color: conference.$navy;
+    font: 1rem / 1.5 conference.$font;
+  }
+  textarea {
+    min-height: 9rem;
+    resize: vertical;
+  }
+  input::placeholder, textarea::placeholder {
+    color: conference.$muted;
+    opacity: 1;
+  }
+  input[aria-invalid="true"], textarea[aria-invalid="true"] {
+    border: 2px solid conference.$error;
+  }
+}
+
+.helper {
+  margin: 0.5rem 0 0;
+  color: conference.$muted;
+  font-size: 0.875rem;
+  line-height: 1.5;
+}
+
+.choices {
+  min-width: 0;
+  margin: 1.5rem 0;
+  padding: 1.5rem 0 1rem;
+  border: 0;
+  border-bottom: 1px solid conference.$border;
+  legend {
+    display: block;
+    width: 100%;
+    padding: 1rem 0 0;
+    border-top: 1px solid conference.$border;
+    font-size: 1.125rem;
+    font-weight: 700;
+    line-height: 1.4;
+  }
+  & + .choices legend {
+    padding-top: 0;
+    border: 0;
+  }
+  .helper {
+    margin-top: -1rem;
+    margin-bottom: 0.75rem;
+  }
+  label {
+    display: flex;
+    min-height: 3rem;
+    align-items: center;
+    gap: 1rem;
+    font-size: 1rem;
+    line-height: 1.4;
+    cursor: pointer;
+  }
+}
+
+.choices input, .agreement input {
+  @include conference.focus(conference.$navy);
+  flex-shrink: 0;
+  width: 1.5rem;
+  height: 1.5rem;
+  margin: 0;
+  accent-color: conference.$coral;
+  cursor: pointer;
+}
+
+.agreement {
+  display: flex;
+  min-height: 3rem;
+  align-items: center;
+  gap: 1rem;
+  margin: 1.5rem 0;
+  font-size: 1rem;
+  line-height: 1.4;
+  cursor: pointer;
+  a {
+    @include conference.focus(conference.$navy);
+    color: inherit;
+    text-decoration: none;
+  }
+}
+
+.submit {
+  @include conference.action-link(conference.$navy);
+  width: 100%;
+  justify-content: flex-start;
+  border: 0;
+  font-family: inherit;
+  cursor: pointer;
+}
+
+.error {
+  margin: 0.5rem 0 0;
+  color: conference.$error;
+  font-size: 0.875rem;
+  line-height: 1.5;
+}
+
+.errorSummary {
+  @include conference.focus(conference.$error);
+  margin-bottom: 2rem;
+  padding: 1.5rem;
+  border: 2px solid conference.$error;
+  color: conference.$error;
+  h3 {
+    margin: 0 0 1rem;
+    font-size: 1.5rem;
+  }
+  p, ol {
+    margin: 0 0 0.75rem;
+    font-size: 1rem;
+    line-height: 1.5;
+  }
+  ol {
+    margin-bottom: 0;
+    padding-left: 1.25rem;
+  }
+  a {
+    @include conference.focus(conference.$error);
+    color: inherit;
+    text-decoration: none;
+  }
+}
+
+.confirmation {
+  @include conference.focus(conference.$navy);
+  h3 {
+    margin: 1.5rem 0;
+    font-size: 3rem;
+    line-height: 1.2;
+    letter-spacing: -0.03em;
+  }
+  p {
+    font-size: 1.25rem;
+    line-height: 1.5;
+  }
+  .confirmationLabel {
+    padding-bottom: 1.5rem;
+    border-bottom: 1px solid conference.$border;
+    font-size: 0.875rem;
+    font-weight: 700;
+  }
+  .confirmationDate {
+    font-size: 1rem;
+    font-weight: 700;
+  }
+  .helper {
+    margin-bottom: 1.5rem;
+    font-size: 1rem;
+  }
+  .submit {
+    width: auto;
+  }
+}
+
+.textButton {
+  @include conference.text-link(conference.$muted);
+  display: flex;
+  margin-top: 1rem;
+  padding: 0;
+  border: 0;
+  background: none;
+  font-family: inherit;
+  font-weight: 400;
+  text-decoration: underline;
+  cursor: pointer;
+}
+
+@media (max-width: 63.99rem) {
+  .inner {
+    gap: 3rem;
+  }
+}
+
+@media (max-width: 47.99rem) {
+  .section {
+    padding: 3.5rem 0;
+  }
+  .inner {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 3rem;
+  }
+  .label {
+    margin-bottom: 2rem;
+    font-size: 0.75rem;
+  }
+  .title {
+    font-size: 2.75rem;
+    margin-bottom: 2rem;
+  }
+  .titleLast {
+    display: inline;
+  }
+  .introduction {
+    font-size: 1.25rem;
+    line-height: 1.4;
+  }
+  .invitation h3 {
+    margin-bottom: 1.5rem;
+  }
+  .formColumn {
+    padding-top: 0;
+  }
+  .draft {
+    padding: 1rem;
+  }
+  .confirmation h3 {
+    font-size: 2.5rem;
+  }
+}

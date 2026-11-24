@@ -1,0 +1,180 @@
+@use "../../../../styles/conference";
+.section {
+  padding: 5.5rem 0 8rem;
+}
+
+.inner {
+  @include conference.container;
+}
+
+.label {
+  @include conference.section-label;
+}
+
+.title {
+  @include conference.section-title;
+  span {
+    display: block;
+  }
+}
+
+.description {
+  margin: 0 0 2.5rem;
+  font-size: 1.125rem;
+  line-height: 1.5;
+}
+
+.days {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 3rem;
+}
+
+.dayHeading {
+  margin-bottom: 2rem;
+  padding-left: 1.5rem;
+  border-left: 10px solid conference.$blue;
+  p {
+    margin: 0 0 0.75rem;
+    font-size: 0.75rem;
+    font-weight: 700;
+    line-height: 1.4;
+  }
+  h3 {
+    margin: 0;
+    font-size: 2rem;
+    line-height: 1.2;
+  }
+}
+
+.day:nth-child(2) {
+  .dayHeading {
+    border-color: conference.$coral;
+  }
+  .format::before {
+    background: conference.$coral;
+  }
+}
+
+.sessions {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  li {
+    display: grid;
+    min-height: 11rem;
+    grid-template-columns: 6rem minmax(0, 1fr);
+    gap: 1.5rem;
+    padding-block: 2rem;
+    border-top: 1px solid conference.$line;
+  }
+  li:last-child {
+    border-bottom: 1px solid conference.$line;
+  }
+}
+
+.time {
+  font-size: 2rem;
+  font-weight: 700;
+  line-height: 1.25;
+}
+
+.sessionTitle {
+  margin: 0 0 0.5rem;
+  font-size: 1.375rem;
+  font-weight: 700;
+  line-height: 1.25;
+}
+
+.sessionDescription {
+  margin: 0 0 0.625rem;
+  font-size: 1rem;
+  line-height: 1.4;
+}
+
+.format {
+  margin: 0;
+  color: conference.$muted;
+  font-size: 0.875rem;
+  line-height: 1.4;
+  &::before {
+    display: inline-block;
+    width: 0.5rem;
+    height: 0.5rem;
+    margin-right: 0.5rem;
+    background: conference.$blue;
+    content: "";
+  }
+}
+
+.note {
+  margin: 2.5rem 0 0;
+  color: conference.$muted;
+  font-size: 1rem;
+  line-height: 1.5;
+}
+
+@media (max-width: 63.99rem) {
+  .days {
+    gap: 2rem;
+  }
+  .sessions li {
+    grid-template-columns: 4.5rem minmax(0, 1fr);
+    gap: 1rem;
+  }
+  .time {
+    font-size: 1.625rem;
+  }
+}
+
+@media (max-width: 47.99rem) {
+  .section {
+    padding: 3.5rem 0;
+  }
+  .label {
+    margin-bottom: 2rem;
+    font-size: 0.75rem;
+  }
+  .title {
+    margin-bottom: 2rem;
+  }
+  .description {
+    margin-bottom: 2rem;
+    line-height: 1.4;
+  }
+  .days {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 3rem;
+  }
+  .dayHeading {
+    padding-left: 1rem;
+    margin-bottom: 1.5rem;
+  }
+  .dayHeading h3 {
+    font-size: 1.625rem;
+  }
+  .dayHeading p {
+    font-size: 0.6875rem;
+  }
+  .sessions li {
+    min-height: 11.5rem;
+    grid-template-columns: 4rem minmax(0, 1fr);
+    gap: 1rem;
+    padding-block: 2rem;
+  }
+  .time {
+    font-size: 1.5rem;
+  }
+  .sessionTitle {
+    font-size: 1.25rem;
+  }
+  .sessionDescription {
+    font-size: 1.125rem;
+  }
+  .format {
+    font-size: 0.875rem;
+  }
+  .note {
+    font-size: 1rem;
+  }
+}

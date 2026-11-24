@@ -1,0 +1,220 @@
+@use "../../styles/conference";
+
+.header {
+  background: conference.$navy;
+  color: conference.$paper;
+  font-family: conference.$font;
+  font-optical-sizing: none;
+}
+
+.inner {
+  @include conference.container;
+
+  display: flex;
+  min-height: 6.5rem;
+  align-items: center;
+  gap: 2rem;
+}
+
+.logo {
+  @include conference.focus;
+
+  flex-shrink: 0;
+  color: inherit;
+  font-size: 1.375rem;
+  font-weight: 700;
+  line-height: 1.25;
+  text-decoration: none;
+}
+
+.navigation {
+  margin-left: auto;
+}
+
+.links {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 1.5rem;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+
+  a {
+    @include conference.focus;
+
+    display: inline-flex;
+    min-height: 3rem;
+    align-items: center;
+    color: inherit;
+    font-size: 1rem;
+    line-height: 1.5;
+    text-decoration: none;
+
+    &:hover {
+      text-decoration: underline;
+      text-underline-offset: 0.25rem;
+    }
+  }
+}
+
+.register {
+  @include conference.action-link;
+
+  min-width: 9.5rem;
+  margin-left: 4.5rem;
+}
+
+.mobileMenu {
+  display: none;
+}
+
+.menuToggle,
+.menuClose {
+  @include conference.focus;
+
+  display: inline-flex;
+  min-height: 3rem;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.5rem 1rem;
+  border: 0;
+  background: transparent;
+  color: inherit;
+  font: 700 1rem / 1.5 conference.$font;
+  cursor: pointer;
+}
+
+.dialog {
+  position: fixed;
+  inset: 0 0 auto;
+  width: 100%;
+  max-width: none;
+  max-height: 100dvh;
+  margin: 0;
+  padding: 0 1.5rem 1.75rem;
+  overflow-y: auto;
+  overscroll-behavior: contain;
+  border: 0;
+  background: conference.$navy;
+  color: conference.$paper;
+  font-family: conference.$font;
+  font-optical-sizing: none;
+
+  &::backdrop {
+    background: rgb(10 20 48 / 65%);
+  }
+}
+
+.menuHeader {
+  display: flex;
+  min-height: 6.25rem;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+
+  .logo {
+    font-size: 1.125rem;
+    line-height: 1.3;
+  }
+}
+
+.menuLabel {
+  margin: 0 0 1.25rem;
+  font-size: 0.75rem;
+  font-weight: 700;
+  line-height: 1.333333;
+}
+
+.menuLinks {
+  display: grid;
+  gap: 1.5rem;
+  margin: 0 0 1.5rem;
+  padding: 0;
+  list-style: none;
+
+  a {
+    @include conference.focus;
+
+    display: grid;
+    min-height: 3.75rem;
+    grid-template-columns: 2.5rem 1fr auto;
+    align-items: center;
+    gap: 1rem;
+    padding-block: 0.5rem;
+    border-bottom: 1px solid conference.$line;
+    color: inherit;
+    text-decoration: none;
+
+    &:hover {
+      background: #1e3350;
+    }
+  }
+}
+
+.menuNumber {
+  align-self: start;
+  padding-top: 0.25rem;
+  font-size: 0.875rem;
+}
+
+.menuLinkText {
+  font-size: 2rem;
+  font-weight: 700;
+  line-height: 1.25;
+}
+
+.menuArrow {
+  align-self: start;
+  font-size: 1.25rem;
+}
+
+.menuRegister {
+  @include conference.action-link;
+
+  width: 100%;
+  justify-content: flex-start;
+}
+
+.menuDetails {
+  margin: 1.5rem 0 0;
+  font-size: 0.875rem;
+  line-height: 1.5;
+}
+
+@media (max-width: 63.99rem) {
+  .register {
+    margin-left: 1rem;
+  }
+
+  .links {
+    gap: 1rem;
+  }
+}
+
+@media (max-width: 63.99rem) {
+  .inner {
+    min-height: 6.25rem;
+    justify-content: space-between;
+    gap: 1rem;
+  }
+
+  .logo {
+    font-size: 1.125rem;
+    line-height: 1.3;
+  }
+
+  .logoSeparator,
+  .navigation,
+  .register {
+    display: none;
+  }
+
+  .logoYear {
+    display: block;
+  }
+
+  .mobileMenu {
+    display: block;
+  }
+}

@@ -1,0 +1,108 @@
+@use "../../../../styles/conference";
+.section {
+  padding: 6rem 0;
+  background: conference.$navy;
+  color: conference.$paper;
+}
+
+.inner {
+  @include conference.container;
+}
+
+.label {
+  @include conference.section-label;
+  color: conference.$paper;
+}
+
+.title {
+  @include conference.section-title;
+  span {
+    display: block;
+  }
+}
+
+.description {
+  margin: 0 0 2rem;
+  font-size: 1.125rem;
+  line-height: 1.5;
+}
+
+.speakers {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 1.5rem;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  h3 {
+    margin: 1rem 0;
+    font-size: 1.625rem;
+    line-height: 1.25;
+  }
+  li:nth-child(even) .portrait {
+    border-color: conference.$coral;
+  }
+}
+
+.portrait {
+  aspect-ratio: 306 / 370;
+  border-bottom: 1px solid conference.$blue;
+  background: #101e3b;
+}
+
+.caption {
+  margin: 0.875rem 0 0;
+  font-size: 0.75rem;
+  line-height: 1.4;
+}
+
+.role {
+  margin: 0 0 0.75rem;
+  font-size: 1rem;
+  line-height: 1.5;
+}
+
+.organization {
+  margin: 0;
+  font-size: 0.875rem;
+  line-height: 1.5;
+}
+
+@media (max-width: 63.99rem) {
+  .speakers {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 2.5rem 1.5rem;
+  }
+}
+
+@media (max-width: 47.99rem) {
+  .section {
+    padding: 3.5rem 0 3.25rem;
+  }
+  .label {
+    font-size: 0.75rem;
+    margin-bottom: 2rem;
+  }
+  .title {
+    margin-bottom: 2rem;
+  }
+  .description {
+    line-height: 1.4;
+  }
+  .speakers {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 2.25rem;
+  }
+  .portrait {
+    aspect-ratio: 342 / 362;
+  }
+  .speakers h3 {
+    font-size: 1.875rem;
+  }
+  .role {
+    font-size: 1.125rem;
+  }
+  .organization {
+    font-size: 1rem;
+  }
+}
